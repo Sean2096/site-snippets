@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>SiteSnippets 管理</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>SiteSnippets</h1>
+      <span class="spacer"></span>
+      <button id="export-btn" class="btn" type="button">导出 JSON</button>
+      <button id="import-btn" class="btn" type="button">导入 JSON</button>
+      <input id="import-file" type="file" accept="application/json,.json" hidden />
+    </header>
+
+    <section class="toolbar">
+      <input id="search-input" type="search" placeholder="按标题 / 内容 / 规则筛选…" />
+      <select id="scope-filter">
+        <option value="">全部作用域</option>
+        <option value="exact">精确</option>
+        <option value="prefix">前缀</option>
+        <option value="domain">域名</option>
+        <option value="global">全局</option>
+      </select>
+      <span class="spacer"></span>
+      <span id="count-label" class="count-label"></span>
+    </section>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-title">标题</th>
+          <th class="col-scope">作用域</th>
+          <th class="col-pattern">规则</th>
+          <th class="col-content">内容</th>
+          <th class="col-meta">次数</th>
+          <th class="col-actions"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+
+    <div id="empty-state" class="empty hidden">暂无片段</div>
+
+    <dialog id="edit-dialog">
+      <form method="dialog" class="edit-form">
+        <h2 id="dialog-title">编辑片段</h2>
+        <label>标题</label>
+        <input id="edit-title" type="text" />
+        <label>内容</label>
+        <textarea id="edit-content" rows="8"></textarea>
+        <div class="split">
+          <div>
+            <label>作用域</label>
+            <select id="edit-scope">
+              <option value="domain">域名</option>
+              <option value="exact">精确 URL</option>
+              <option value="prefix">URL 前缀</option>
+              <option value="global">全局</option>
+            </select>
+          </div>
+          <div class="pattern-cell">
+            <label>规则</label>
+            <input id="edit-pattern" type="text" />
+          </div>
+        </div>
+        <label class="checkbox"><input id="edit-pinned" type="checkbox" /> 置顶</label>
+        <div class="dialog-actions">
+          <button id="dialog-cancel" class="btn" value="cancel">取消</button>
+          <button id="dialog-save" class="btn primary" value="save">保存</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

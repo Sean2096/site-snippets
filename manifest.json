@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "SiteSnippets",
+  "version": "0.1.0",
+  "description": "按网站保存可复用文本片段，再次打开该网页时一键复制。",
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "SiteSnippets",
+    "default_popup": "popup/popup.html"
+  },
+  "options_page": "options/options.html",
+  "commands": {
+    "save-selection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "保存选中文字为站点片段"
+    }
+  }
+}

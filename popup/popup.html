@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>SiteSnippets</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <span id="site-label" class="site-label" title=""></span>
+      <span class="spacer"></span>
+      <button id="new-btn" class="btn ghost" type="button">+ 新建</button>
+      <button id="settings-btn" class="btn icon-btn" type="button" title="管理全部片段">⚙</button>
+    </header>
+
+    <div class="searchbar">
+      <input id="search-input" type="search" placeholder="搜索片段…" autocomplete="off" />
+    </div>
+
+    <div id="editor" class="editor hidden">
+      <div class="editor-row">
+        <input id="edit-title" class="input" type="text" placeholder="标题（可空）" />
+      </div>
+      <div class="editor-row">
+        <textarea id="edit-content" class="input textarea" rows="5" placeholder="片段内容"></textarea>
+      </div>
+      <div class="editor-row split">
+        <select id="edit-scope" class="input select">
+          <option value="domain">域名</option>
+          <option value="exact">精确 URL</option>
+          <option value="prefix">URL 前缀</option>
+          <option value="global">全局</option>
+        </select>
+        <input id="edit-pattern" class="input" type="text" placeholder="匹配规则" />
+      </div>
+      <div class="editor-actions">
+        <button id="use-clipboard-btn" class="btn ghost" type="button">读取剪贴板</button>
+        <span class="spacer"></span>
+        <button id="cancel-edit-btn" class="btn ghost" type="button">取消</button>
+        <button id="save-edit-btn" class="btn primary" type="button">保存</button>
+      </div>
+    </div>
+
+    <main id="list" class="list"></main>
+
+    <div id="empty-state" class="empty hidden">
+      <p id="empty-text"></p>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
