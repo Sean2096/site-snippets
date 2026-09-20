@@ -11,6 +11,12 @@
   --primary: #2b5fff;
   --primary-weak: #eaf0ff;
   --danger: #c0392b;
+  --scope-exact: #1a5fb4;
+  --scope-prefix: #5b3db0;
+  --scope-domain: #2d7d46;
+  --pin: #b7791f;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --radius: 4px;
   font-size: 12px;
@@ -29,6 +35,10 @@
     --primary: #598bff;
     --primary-weak: #223052;
     --danger: #e06459;
+    --scope-exact: #6fa8ff;
+    --scope-prefix: #b18bff;
+    --scope-domain: #5fcf87;
+    --pin: #e0b352;
   }
 }
 
@@ -42,7 +52,10 @@ body {
   width: 360px;
   color: var(--text);
   background: var(--bg);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .hidden {
@@ -248,13 +261,13 @@ body {
   border: 1px solid var(--border);
 }
 
-.scope-tag.exact { color: #1a5fb4; }
-.scope-tag.prefix { color: #5b3db0; }
-.scope-tag.domain { color: #2d7d46; }
+.scope-tag.exact { color: var(--scope-exact); }
+.scope-tag.prefix { color: var(--scope-prefix); }
+.scope-tag.domain { color: var(--scope-domain); }
 .scope-tag.global { color: var(--text-3); }
 
 .pin-mark {
-  color: #b7791f;
+  color: var(--pin);
   font-size: 11px;
 }
 
